@@ -1,6 +1,7 @@
 // app.js
 const express = require("express");
 const cors = require("cors");
+const uploadRoutes = require("./routes/upload.route");
 
 const app = express();
 
@@ -12,5 +13,9 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Server is running successfully");
 });
+
+app.use("/uploads", express.static("uploads")); // serve static files
+
+app.use("/api", uploadRoutes);
 
 module.exports = app;
