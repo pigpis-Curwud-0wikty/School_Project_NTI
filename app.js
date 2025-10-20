@@ -1,6 +1,6 @@
 // app.js
-import express from "express";
-import cors from "cors";
+const express = require("express");
+const cors = require("cors");
 
 const app = express();
 
@@ -10,7 +10,7 @@ app.use(express.json());
 
 // Sample route
 app.get("/", (req, res) => {
-  res.send("Server is running successfully ✅");
+  res.send("Server is running successfully");
 });
 
-export default app;
+module.exports = app;
