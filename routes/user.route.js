@@ -1,13 +1,12 @@
-// routes/user.route.js
 const express = require("express");
 const { registerValidation } = require("../middleware/user.validator");
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
-const User = require("../models/user.model");
+const User = require("../model/user.model");
 
-const router = express.Router();
+const userRoutes = express.Router();
 
-router.post("/register", registerValidation, async (req, res) => {
+userRoutes.post("/register", registerValidation, async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -22,4 +21,4 @@ router.post("/register", registerValidation, async (req, res) => {
   res.status(201).json({ message: "User registered successfully ✅" });
 });
 
-module.exports = router;
+module.exports = userRoutes;

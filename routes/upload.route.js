@@ -1,15 +1,15 @@
 const express = require("express");
-const router = express.Router();
+const uploadRoutes = express.Router();
 const upload = require("../config/upload");
 
-router.post("/upload/profile/:userId", upload.single("profile"), (req, res) => {
+uploadRoutes.post("/upload/profile/:userId", upload.single("profile"), (req, res) => {
   res.json({
     message: "Profile uploaded successfully",
     file: req.file,
   });
 });
 
-router.post(
+uploadRoutes.post(
   "/upload/document/:studentId",
   upload.single("document"),
   (req, res) => {
@@ -20,4 +20,4 @@ router.post(
   }
 );
 
-module.exports = router;
+module.exports = uploadRoutes;

@@ -2,9 +2,9 @@ const express = require("express");
 const authMiddleware = require("../middleware/auth.middleware");
 const roleMiddleware = require("../middleware/role.middleware");
 
-const router = express.Router();
+const gradeRoutes = express.Router();
 
-router.post(
+gradeRoutes.post(
   "/add",
   authMiddleware,
   roleMiddleware(["teacher", "admin"]),
@@ -13,4 +13,4 @@ router.post(
   }
 );
 
-module.exports = router;
+module.exports = gradeRoutes;
