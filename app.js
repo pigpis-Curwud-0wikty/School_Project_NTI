@@ -5,6 +5,8 @@ const uploadRoutes = require("./routes/upload.route");
 const enrollmentRoutes = require("./routes/enrollment.route");
 const gradeRoutes = require("./routes/grade.route");
 const courseRoutes = require("./routes/course.route");
+const authRoutes = require("./routes/auth.route");
+const userRoutes = require("./routes/user.route");
 
 const app = express();
 
@@ -13,7 +15,6 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/courses", courseRoutes);
 app.use("/api/enrollments", enrollmentRoutes);
-app.use("/api/grades", gradeRoutes);
 // Sample route
 app.get("/", (req, res) => {
   res.send("Server is running successfully");

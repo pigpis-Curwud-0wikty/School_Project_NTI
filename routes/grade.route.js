@@ -11,11 +11,11 @@ const {
 const gradeRoutes = express.Router();
 
 // 🔹 Routes
-router.get("/", getAllGrades);
-router.post("/", assignGrade);
-router.put("/:id", updateGrade);
-router.delete("/:id", deleteGrade);
-router.post(
+gradeRoutes.get("/", getAllGrades);
+gradeRoutes.post("/", assignGrade);
+gradeRoutes.put("/:id", updateGrade);
+gradeRoutes.delete("/:id", deleteGrade);
+gradeRoutes.post(
   "/add",
   authMiddleware,
   roleMiddleware(["teacher", "admin"]),
