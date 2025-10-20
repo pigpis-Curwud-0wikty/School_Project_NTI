@@ -3,15 +3,15 @@ const cookiesParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 const bcrypt = require("bcryptjs");
-const User = require("../models/user.model");
+const User = require("../model/user.model");
 
 dotenv.config();
-const router = express.Router();
+const authRoutes = express.Router();
 
 // Apply cookies parser middleware
-router.use(cookiesParser());
+authRoutes.use(cookiesParser());
 
-router.post("/login", async (req, res) => {
+authRoutes.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
@@ -49,4 +49,4 @@ router.post("/login", async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = authRoutes;

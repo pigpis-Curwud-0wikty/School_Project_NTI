@@ -22,5 +22,8 @@ app.get("/", (req, res) => {
 app.use("/uploads", express.static("uploads")); // serve static files
 
 app.use("/api", uploadRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/grades", gradeRoutes);
 
 module.exports = app;

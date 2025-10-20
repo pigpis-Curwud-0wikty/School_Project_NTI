@@ -1,11 +1,10 @@
-// routes/user.route.js
 const express = require("express");
 const { registerValidation } = require("../middleware/user.validator");
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
-const User = require("../models/user.model");
+const User = require("../model/user.model");
 
-const router = express.Router();
+const userRoutes = express.Router();
 
 // register
 router.post("/register", registerValidation, async (req, res) => {
@@ -20,7 +19,7 @@ router.post("/register", registerValidation, async (req, res) => {
   const newUser = new User({ name, email, password: hashedPassword, role });
 
   await newUser.save();
-  res.status(201).json({ message: "User registered successfully ✅" });
+  res.status(201).json({ message: "User registered successfully" });
 });
 
-module.exports = router;
+module.exports = userRoutes;

@@ -8,7 +8,7 @@ const {
   deleteGrade,
 } = require("../controllers/grade.controller");
 
-const router = express.Router();
+const gradeRoutes = express.Router();
 
 // 🔹 Routes
 router.get("/", getAllGrades);
@@ -24,4 +24,4 @@ router.post(
   }
 );
 
-module.exports = router;
+module.exports = gradeRoutes;
