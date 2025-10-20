@@ -7,6 +7,7 @@ const User = require("../models/user.model");
 
 const router = express.Router();
 
+// register
 router.post("/register", registerValidation, async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
